@@ -1,22 +1,24 @@
 #include "No.h"
+#include "Aresta.h"
 using namespace std;
-include <vector>
+#include <vector>
 
-No::No(int ident, int grauNo)
-{
-    id = ident;
-    grau = grauNo;
-    std::vector <Aresta> listaAresta;
-}
 
 No::~No()
 {
-
+    cout<<"Deletando No";
 }
+No::No(int ident)
+{
+    id = ident;
+    grau =0;
+    vector <Aresta> listaAresta;
+}
+
 
 void No::setGrau(int grauNo)
 {
-    grau = g;
+    grau = grauNo;
 }
 
 int No::getGrau()
@@ -29,22 +31,22 @@ void No::setId(int ident)
     id = ident;
 }
 
-int No::getId() ()
+int No::getId()
 {
-    return iD;
+    return id;
 }
 
-float No::getAresta(int i){
-    return listaAresta[i].getIdNo();
-}
+//float No::getAresta(int i){
+ //   return listaAresta[i].getIdNo();
+//}
 
 void No::adicionaAresta(int ident, float pesoAresta){
-    Aresta aresta =  Aresta(ident,pesoAresta);
+   Aresta *aresta = new  Aresta(ident,pesoAresta);
     if(ident == id)
         grau += 2;
-    else
-        grau += 1;
-    listaAresta.push_back(aresta);
+   else
+       grau += 1;
+    listaAresta.push_back(*aresta);
 }
 
 void No::removeAresta(int ident)
@@ -54,4 +56,3 @@ void No::removeAresta(int ident)
     else
         grau -= 1;
 }
-

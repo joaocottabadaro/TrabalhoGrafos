@@ -1,3 +1,15 @@
+#include "Aresta.h"
+#include <iostream>
+using namespace std;
+Aresta::Aresta()
+{
+   cout<<"criando aresta";
+}
+
+Aresta::~Aresta()
+{
+    cout<<"Deletando Aresta";
+}
 Aresta::Aresta(int id,float peso)
 {
     identNo = id;
@@ -19,7 +31,7 @@ int Aresta::getIdNo()
     return identNo;
 }
 
-int Aresta::setIdNo(int id)
+void Aresta::setIdNo(int id)
 {
     identNo = id;
 }
