@@ -1,0 +1,30 @@
+# depslib dependency file v1.0
+1542042188 source:c:\users\joao\desktop\trabalhografosnovo\aresta.cpp
+	"Aresta.h"
+	<iostream>
+
+1542042188 c:\users\joao\desktop\trabalhografosnovo\aresta.h
+	"No.h"
+	<iostream>
+	<vector>
+
+1542043776 c:\users\joao\desktop\trabalhografosnovo\no.h
+	<vector>
+
+1542044884 source:c:\users\joao\desktop\trabalhografosnovo\grafo.cpp
+	"Grafo.h"
+
+1542043756 c:\users\joao\desktop\trabalhografosnovo\grafo.h
+	"No.h"
+	"Aresta.h"
+	<vector>
+
+1542043381 source:c:\users\joao\desktop\trabalhografosnovo\main.cpp
+	<iostream>
+	<Grafo.h>
+
+1542043723 source:c:\users\joao\desktop\trabalhografosnovo\no.cpp
+	"No.h"
+	"Aresta.h"
+	<vector>
+
