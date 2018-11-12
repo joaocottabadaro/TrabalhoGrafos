@@ -1,27 +1,30 @@
+#include <vector>
 #include "Grafo.h"
 using namespace std;
+#include "Aresta.h"
+
 Grafo::Grafo()
 {
         cout<<"criando grafos";
 }
 
 
-Grafo::~Grafo()
+~Grafo::Grafo()
 {
-    cout<<"deletando grafos";
+cout<<"deletando grafos";
 }
-
 
 void Grafo::adicionarNo(int id)
 {
-    No * no = new No(id);
-    listaAdj.push_back(*no);
+    No no = new No();
+    no.setId(id);
+    listaAdj.push_back(no);
 }
 
-/*void Grafo::removerNo (int id)
+void Grafo::removerNo (int id)
 {
-    vector <No>::iterator it;
-    vector <Aresta>::iterator a;
+    std::vector <No>::iterator it;
+    std::vector <Aresta>::iterator a;
     int i=0,j=0;
     for(it = listaAdj.begin() ; it != listaAdj.end(); ++it, i++ ){
         if ( it->getId() == id ){
@@ -31,15 +34,15 @@ void Grafo::adicionarNo(int id)
     i =0;
     for(it = listaAdj.begin(); it != listaAdj.end(); ++it,i++){
             j = 0;
-        for(vector<Aresta>::iterator a = listaAdj[i].listaAresta.begin(); a != listaAdj[i].listaAresta.end() && j < listaAdj[i].listaAresta.size() ;   ++a){
-                if(a->getIdNo() == id) {
+        for(std::vector<Aresta>::iterator a = listaAdj[i].listaAresta.begin(); a != listaAdj[i].listaAresta.end() && j < listaAdj[i].listaAresta.size() ;   ++a){
+                if(a->getIDNo() == id) {
                     listaAdj[i].listaAresta.erase( listaAdj[i].listaAresta.begin() + j );
                 }
                 j++;
         }
     }
 }
-*/
+
 int Grafo::ordemGrafo()
 {
     return listaAdj.size();
@@ -52,7 +55,7 @@ bool Grafo::grafoCompleto()
     for(int i = 0; i < n; i++) {
         num_Arestas += listaAdj[i].getGrau();
     }
-    if(num_Arestas == n*(n-1))
+    if(num_arestas == n*(n-1))
         return true;
     return false;
 
@@ -60,7 +63,7 @@ bool Grafo::grafoCompleto()
 
 bool Grafo::grafoKRegularidade(int k)
 {
-    for (vector<No>::iterator it = listaAdj.begin(); it != listaAdj.end(); ++it) {
+    for (std::vector<No>::iterator it = listaAdj.begin(); it != listaAdj.end(); ++it) {
                 if(it->getGrau()!=k)
                 {
                     return false;
@@ -73,10 +76,10 @@ bool Grafo::grafoKRegularidade(int k)
 void Grafo::vizinhacaAberta(int id)
 {
     int i=0;
-    for (vector<No>::iterator it = listaAdj.begin(); it != listaAdj.end(); ++it, i++) {
+    for (std::vector<No>::iterator it = listaAdj.begin(); it != listaAdj.end(); ++it, i++) {
          if( it->getId() == id )
          {
-            for(vector<Aresta>::iterator arest = listaAdj[i].listaAresta.begin(); arest != listaAdj[i].listaAresta.end(); ++arest)
+            for(std::vector<Aresta>::iterator arest = listaAdj[i].listaAresta.begin(); arest != listaAdj[i].listaAresta.end(); ++arest)
                 cout << arest->getIdNo() << endl;
          }
     }
@@ -86,10 +89,10 @@ void Grafo::vizinhacaFechada(int id)
 {
     int i=0;
     cout << id << endl;
-    for (vector<No>::iterator it = listaAdj.begin(); it != listaAdj.end(); ++it, i++) {
+    for (std::vector<No>::iterator it = listaAdj.begin(); it != listaAdj.end(); ++it, i++) {
          if( it->getId() == id )
          {
-            for(vector<Aresta>::iterator arest = listaAdj[i].listaAresta.begin(); arest != listaAdj[i].listaAresta.end(); ++arest)
+            for(std::vector<Aresta>::iterator arest = listaAdj[i].listaAresta.begin(); arest != listaAdj[i].listaAresta.end(); ++arest)
                 cout << arest->getIdNo() << endl;
          }
     }
@@ -117,12 +120,12 @@ bool Grafo::bipartido()
 
 void Grafo::sequenciaGraus()
 {
-    for (vector<No>::iterator it = listaAdj.begin(); it != listaAdj.end(); ++it) {
+    for (std::vector<No>::iterator it = listaAdj.begin(); it != listaAdj.end(); ++it) {
             cout << it->getGrau() << " ";
     }
 }
 
-/*void Grafo::algoritmoPrim()
+void Grafo::algoritmoPrim()
 {
     int menor = -1;
     int i = 0;
@@ -136,11 +139,37 @@ void Grafo::sequenciaGraus()
         arvore[i]=-1;
     // fim - criação vetor arvore
 
+    while(cont < listaAdj.size()){
+        std::vector<No>::iterator it = listaAdj[i];
+        menor = it.listaAresta[0].getPesoAresta;
+        for(std::vector<Aresta>::iterator arest = listaAdj[i].listaAresta[1]; arest != listaAdj[i].listaAresta.end(); ++arest){
+            if(arest.)
+                if(arest.pesoAresta<menor){
+                    bool flag=false;
+                    for(k=0;k<tam;k++)
+                    {
+                        if(arest.GetId ==arvore[k]){
+                            flag = true;
+                        }
+                    }
+                        if(flag =false){
+                        menor=Aresta.getPesoAresta
+                        arvore[i+1]=arest.idNome;
+                        break
+                        }
+                  arvore[i+1]=it.listaAresta[0].id
+                }
 
+        }
+
+    i++;
+    cont++;
+    }
+}
 while(cont < listaAdj.size()){
-        vector<No>::iterator it = listaAdj[i];
+        std::vector<No>::iterator it = listaAdj[i];
         menor = it.listaAresta[0].getPesoAresta; //menor peso de aresta ligante
-        for(vector<Aresta>::iterator arest = listaAdj[i].listaAresta.begin(); arest != listaAdj[i].listaAresta.end(); ++arest){
+        for(std::vector<Aresta>::iterator arest = listaAdj[i].listaAresta.begin(); arest != listaAdj[i].listaAresta.end(); ++arest){
             bool flag=false;
             if(arest.getPesoAresta<menor){
 
@@ -166,6 +195,3 @@ while(cont < listaAdj.size()){
 
 
 }
-*/
-
-

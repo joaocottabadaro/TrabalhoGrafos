@@ -1,21 +1,18 @@
-#ifndef ARESTA_H
-#define ARESTA_H
-#include "No.h"
-#include <iostream>
-#include <vector>
-class Aresta
-{
-     private:
+#ifndef ARESTA_H_INCLUDED
+#define ARESTA_H_INCLUDED
+
+class Aresta{
+    private:
         float pesoAresta;
-        int identNo;
+        int iD_No;
     public:
         Aresta();
         ~Aresta();
-        Aresta(int id,float peso);
+        Aresta(int iD_No,float pesoA);
         float getPesoAresta();
         int getIdNo();
-        void setIdNo(int id);
+        int setIdNo(int id);
         void setPesoAresta(float peso);
 };
 
-#endif // ARESTA_H
+#endif // ARESTA_H_INCLUDED
