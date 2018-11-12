@@ -173,7 +173,7 @@ int i=0;
      for (int i=0;i<listaAdj.size();i++)
     {
 
-        if(listaAdj[i].getId == id)
+        if(listaAdj[i].getId() == id)
         {
             break;
         }
@@ -183,7 +183,7 @@ int i=0;
     for (i=0;i<listaAdj.size();i++)
     {
 
-        if(listaAdj[i].getId == id2){
+        if(listaAdj[i].getId() == id2){
             break;
         }
 
@@ -192,6 +192,19 @@ int i=0;
     }
     listaAdj[i].adicionaAresta(id,peso);
 
+
+
+}
+void Grafo::imprimeGrafo(){
+    int i=0,j=0;
+
+    for(std::vector<No>::iterator it = listaAdj.begin(); it != listaAdj.end(); ++it,i++){
+        std::cout << listaAdj[i].getId();
+         for(std::vector <Aresta>::iterator arest = listaAdj[i].listaAresta.begin(); arest != listaAdj[i].listaAresta.end(); arest++,j++ ){
+            std::cout << " -> " << listaAdj[i].listaAresta[j].getIdNo();
+         }
+         std::cout << std::endl;
+    }
 
 
 }

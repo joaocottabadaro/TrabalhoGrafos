@@ -20,7 +20,7 @@ class Grafo
         void vizinhacaFechada(int id);
         void sequenciaGraus();
         void AdicionarArestaNos(int id , int id2,int peso);
-
+        void imprimeGrafo();
 
 };
 
